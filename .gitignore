@@ -2,6 +2,9 @@
 node_modules/
 target/
 dist/
+apps/promo/out/
+apps/promo/public/soundtrack.wav
+*.tsbuildinfo
 *.log
 .env
 .env.*

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Semantic Hedge Fund"
+  short_description: "Find and evaluate prediction-market hedges for portfolio risks."

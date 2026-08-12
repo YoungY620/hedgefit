@@ -1,0 +1,20 @@
+{
+  "name": "semantic-hedge-fund",
+  "interface": {
+    "displayName": "Semantic Hedge Fund"
+  },
+  "plugins": [
+    {
+      "name": "semantic-hedge-fund",
+      "source": {
+        "source": "local",
+        "path": "./plugins/semantic-hedge-fund"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Finance"
+    }
+  ]
+}

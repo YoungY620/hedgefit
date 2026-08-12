@@ -1,0 +1,16 @@
+:root {
+  --ink: #101312;
+  --paper: #f4f1e8;
+  --white: #fcfbf7;
+  --lime: #b8f36b;
+  --green: #376b55;
+  --mint: #ddf4d1;
+  --orange: #f4a45b;
+  --peach: #f8dec7;
+  --grey: #777d76;
+  --line: #d9d7cf;
+  --red: #d26855;
+  --display: Inter, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  --body: Inter, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --mono: "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+}

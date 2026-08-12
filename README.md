@@ -2,6 +2,8 @@
 
 An agent skill for semantic hedging research with prediction markets.
 
+Website: [youngy620.github.io/semantic-hedge-fund](https://youngy620.github.io/semantic-hedge-fund/)
+
 The core question is:
 
 ```text
@@ -46,30 +48,62 @@ Prediction-market rows should name the exact market question and direction token
 
 ## Installation
 
-Install the skill directory into your agent's skills folder:
+Choose the method that matches your agent.
+
+### Codex
+
+Add this repository as a plugin marketplace and install the plugin:
 
 ```bash
-cp -R skills/semantic-hedge-fund ~/.codex/skills/
+codex plugin marketplace add YoungY620/semantic-hedge-fund && \
+  codex plugin add semantic-hedge-fund@semantic-hedge-fund
 ```
 
-For Kimi Code, the current user skills directory is typically:
+### curl
+
+Download the skill directly into the Codex user skills directory:
 
 ```bash
-cp -R skills/semantic-hedge-fund ~/.kimi-code/skills/
+mkdir -p ~/.codex/skills/semantic-hedge-fund && \
+  curl -fsSL https://github.com/YoungY620/semantic-hedge-fund/archive/refs/heads/main.tar.gz | \
+  tar -xz --strip-components=3 \
+    -C ~/.codex/skills/semantic-hedge-fund \
+    semantic-hedge-fund-main/skills/semantic-hedge-fund
 ```
 
-Restart the agent session after installing or updating the skill.
+### Any agent
 
-## Repository Layout
+Paste this prompt into any agent that supports installable skills:
 
 ```text
-skills/semantic-hedge-fund/
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-└── references/
-    └── templates.md
+Install the semantic-hedge-fund skill from https://github.com/YoungY620/semantic-hedge-fund. Detect your user skills directory, install skills/semantic-hedge-fund there, validate SKILL.md, and tell me whether a restart is required.
 ```
+
+Restart the agent session if your agent does not detect newly installed skills automatically.
+
+## Monorepo Layout
+
+```text
+apps/
+├── promo/                 Remotion product film and original soundtrack
+└── web/                   Vite/React GitHub Pages site
+packages/
+└── brand/                 Shared colors, type, and CSS tokens
+skills/
+└── semantic-hedge-fund/   Installable agent skill
+.github/workflows/
+└── deploy-pages.yml       GitHub Pages build and deployment
+```
+
+## Develop
+
+```bash
+npm install
+npm run dev:web
+npm run studio:promo
+```
+
+Build the website with `npm run build:web`. Render the 28-second product film with `npm run render:promo` (requires FFmpeg).
 
 ## Boundary
 

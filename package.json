@@ -1,0 +1,16 @@
+{
+  "name": "semantic-hedge-fund-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=@semantic-hedge-fund/web",
+    "build:web": "npm run build --workspace=@semantic-hedge-fund/web",
+    "studio:promo": "npm run studio --workspace=@semantic-hedge-fund/promo",
+    "render:promo": "npm run render --workspace=@semantic-hedge-fund/promo"
+  }
+}

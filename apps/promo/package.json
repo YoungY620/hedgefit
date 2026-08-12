@@ -1,0 +1,27 @@
+{
+  "name": "@semantic-hedge-fund/promo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "npm run soundtrack && npm run render:frames && npm run encode && npm run mux && npm run poster",
+    "soundtrack": "node scripts/make-soundtrack.js",
+    "render:frames": "remotion render src/index.ts SemanticHedgeFundSilent out/frames --sequence --image-format=png --image-sequence-pattern=frame-[frame].png",
+    "encode": "ffmpeg -y -framerate 30 -start_number 0 -i out/frames/frame-%03d.png -c:v libx264 -crf 16 -preset slow -pix_fmt yuv420p -movflags +faststart out/semantic-hedge-fund-promo-silent.mp4",
+    "mux": "ffmpeg -y -i out/semantic-hedge-fund-promo-silent.mp4 -i public/soundtrack.wav -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart out/semantic-hedge-fund-promo.mp4",
+    "poster": "remotion still src/index.ts SemanticHedgeFund out/semantic-hedge-fund-poster.png --frame=785"
+  },
+  "dependencies": {
+    "@semantic-hedge-fund/brand": "*",
+    "@remotion/cli": "4.0.508",
+    "@remotion/media": "4.0.508",
+    "remotion": "4.0.508",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.10",
+    "typescript": "5.9.2"
+  }
+}

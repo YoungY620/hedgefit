@@ -1,0 +1,10 @@
+{
+  "name": "@semantic-hedge-fund/brand",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./tokens.ts",
+    "./styles.css": "./styles.css"
+  }
+}
