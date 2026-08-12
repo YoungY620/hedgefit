@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import '@semantic-hedge-fund/brand/styles.css';
 import './styles.css';
@@ -59,6 +59,60 @@ const InstallOptions = () => {
 
 const RiskMap = () => {
   const mapRef = useRef<HTMLDivElement>(null);
+  const [connectors, setConnectors] = useState<{width: number; height: number; paths: Array<{key: string; tone: 'wanted' | 'unwanted'; d: string}>} | null>(null);
+
+  useLayoutEffect(() => {
+    const node = mapRef.current;
+    if (!node) return;
+
+    const updateConnectors = () => {
+      const asset = node.querySelector<HTMLElement>('[data-map-node="asset"]');
+      if (!asset) return;
+
+      const box = (key: string) => {
+        const element = node.querySelector<HTMLElement>(`[data-map-node="${key}"]`);
+        if (!element) return null;
+        return {
+          left: element.offsetLeft,
+          right: element.offsetLeft + element.offsetWidth,
+          top: element.offsetTop,
+          height: element.offsetHeight,
+        };
+      };
+      const assetBox = box('asset');
+      if (!assetBox) return;
+
+      const definitions = [
+        {key: 'w1', tone: 'wanted' as const, side: 'left' as const, anchor: 0.3},
+        {key: 'w2', tone: 'wanted' as const, side: 'left' as const, anchor: 0.72},
+        {key: 'r1', tone: 'unwanted' as const, side: 'right' as const, anchor: 0.2},
+        {key: 'r2', tone: 'unwanted' as const, side: 'right' as const, anchor: 0.5},
+        {key: 'r3', tone: 'unwanted' as const, side: 'right' as const, anchor: 0.8},
+      ];
+      const paths = definitions.flatMap((definition) => {
+        const target = box(definition.key);
+        if (!target) return [];
+        const direction = definition.side === 'left' ? -1 : 1;
+        const startX = definition.side === 'left' ? assetBox.left : assetBox.right;
+        const endX = definition.side === 'left' ? target.right : target.left;
+        const startY = assetBox.top + assetBox.height * definition.anchor;
+        const endY = target.top + target.height / 2;
+        const bend = Math.max(34, Math.abs(endX - startX) * 0.48);
+        return [{
+          key: definition.key,
+          tone: definition.tone,
+          d: `M ${startX} ${startY} C ${startX + direction * bend} ${startY}, ${endX - direction * bend} ${endY}, ${endX} ${endY}`,
+        }];
+      });
+      setConnectors({width: node.clientWidth, height: node.clientHeight, paths});
+    };
+
+    updateConnectors();
+    const observer = new ResizeObserver(updateConnectors);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     const node = mapRef.current;
     if (!node) return;
@@ -73,21 +127,17 @@ const RiskMap = () => {
   return (
     <div className="risk-map" ref={mapRef}>
       <div className="map-head"><span>Live concept</span><strong><i /> Exposure map</strong></div>
-      <svg className="map-lines" viewBox="0 0 700 500" aria-hidden="true">
-        <path className="line wanted" d="M350 253 C280 253 250 142 150 142" />
-        <path className="line wanted" d="M350 253 C280 253 250 367 150 367" />
-        <path className="line unwanted" d="M350 253 C435 253 448 115 550 115" />
-        <path className="line unwanted" d="M350 253 C435 253 448 253 550 253" />
-        <path className="line unwanted" d="M350 253 C435 253 448 390 550 390" />
-      </svg>
-      <div className="map-card map-card--asset">
+      {connectors ? <svg className="map-lines" viewBox={`0 0 ${connectors.width} ${connectors.height}`} preserveAspectRatio="none" aria-hidden="true">
+        {connectors.paths.map((path) => <path key={path.key} className={`line ${path.tone}`} d={path.d} />)}
+      </svg> : null}
+      <div className="map-card map-card--asset" data-map-node="asset">
         <small>Asset capsule</small><b>AI infrastructure</b><span>3 risks found</span>
       </div>
-      <div className="map-card map-card--wanted map-card--w1"><small>Wanted</small><b>AI demand</b><span>Keep</span></div>
-      <div className="map-card map-card--wanted map-card--w2"><small>Wanted</small><b>Compute growth</b><span>Keep</span></div>
-      <div className="map-card map-card--risk map-card--r1"><small>Unwanted</small><b>Export controls</b><span>Hedge</span></div>
-      <div className="map-card map-card--risk map-card--r2"><small>Unwanted</small><b>Taiwan disruption</b><span>Hedge</span></div>
-      <div className="map-card map-card--risk map-card--r3"><small>Unwanted</small><b>Rate shock</b><span>Hedge</span></div>
+      <div className="map-card map-card--wanted map-card--w1" data-map-node="w1"><small>Wanted</small><b>AI demand</b><span>Keep</span></div>
+      <div className="map-card map-card--wanted map-card--w2" data-map-node="w2"><small>Wanted</small><b>Compute growth</b><span>Keep</span></div>
+      <div className="map-card map-card--risk map-card--r1" data-map-node="r1"><small>Unwanted</small><b>Export controls</b><span>Hedge</span></div>
+      <div className="map-card map-card--risk map-card--r2" data-map-node="r2"><small>Unwanted</small><b>Taiwan disruption</b><span>Hedge</span></div>
+      <div className="map-card map-card--risk map-card--r3" data-map-node="r3"><small>Unwanted</small><b>Rate shock</b><span>Hedge</span></div>
       <div className="map-caption">One thesis. Two sides.</div>
     </div>
   );
