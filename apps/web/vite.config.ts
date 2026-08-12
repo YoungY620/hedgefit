@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/semantic-hedge-fund/',
+  base: '/hedgefit/',
   build: {
     outDir: 'dist',
     rollupOptions: {

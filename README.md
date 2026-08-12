@@ -1,8 +1,8 @@
-# Semantic Hedge Fund
+# HedgeFit
 
-An agent skill for semantic hedging research with prediction markets.
+Thesis-to-hedge research for agents.
 
-Website: [youngy620.github.io/semantic-hedge-fund](https://youngy620.github.io/semantic-hedge-fund/)
+Website: [youngy620.github.io/hedgefit](https://youngy620.github.io/hedgefit/)
 
 The core question is:
 
@@ -55,8 +55,8 @@ Choose the method that matches your agent.
 Add this repository as a plugin marketplace and install the plugin:
 
 ```bash
-codex plugin marketplace add YoungY620/semantic-hedge-fund && \
-  codex plugin add semantic-hedge-fund@semantic-hedge-fund
+codex plugin marketplace add YoungY620/hedgefit && \
+  codex plugin add hedge-fit@hedgefit
 ```
 
 ### curl
@@ -64,11 +64,11 @@ codex plugin marketplace add YoungY620/semantic-hedge-fund && \
 Download the skill directly into the Codex user skills directory:
 
 ```bash
-mkdir -p ~/.codex/skills/semantic-hedge-fund && \
-  curl -fsSL https://github.com/YoungY620/semantic-hedge-fund/archive/refs/heads/main.tar.gz | \
+mkdir -p ~/.codex/skills/hedge-fit && \
+  curl -fsSL https://github.com/YoungY620/hedgefit/archive/refs/heads/main.tar.gz | \
   tar -xz --strip-components=3 \
-    -C ~/.codex/skills/semantic-hedge-fund \
-    semantic-hedge-fund-main/skills/semantic-hedge-fund
+    -C ~/.codex/skills/hedge-fit \
+    hedgefit-main/skills/hedge-fit
 ```
 
 ### Any agent
@@ -76,7 +76,7 @@ mkdir -p ~/.codex/skills/semantic-hedge-fund && \
 Paste this prompt into any agent that supports installable skills:
 
 ```text
-Install the semantic-hedge-fund skill from https://github.com/YoungY620/semantic-hedge-fund. Detect your user skills directory, install skills/semantic-hedge-fund there, validate SKILL.md, and tell me whether a restart is required.
+Install the HedgeFit skill from https://github.com/YoungY620/hedgefit. Detect your user skills directory, install skills/hedge-fit there, validate SKILL.md, and tell me whether a restart is required.
 ```
 
 Restart the agent session if your agent does not detect newly installed skills automatically.
@@ -90,7 +90,7 @@ apps/
 packages/
 └── brand/                 Shared colors, type, and CSS tokens
 skills/
-└── semantic-hedge-fund/   Installable agent skill
+└── hedge-fit/              Installable agent skill
 .github/workflows/
 └── deploy-pages.yml       GitHub Pages build and deployment
 ```

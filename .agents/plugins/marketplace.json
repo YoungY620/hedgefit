@@ -1,14 +1,14 @@
 {
-  "name": "semantic-hedge-fund",
+  "name": "hedge-fit",
   "interface": {
-    "displayName": "Semantic Hedge Fund"
+    "displayName": "HedgeFit"
   },
   "plugins": [
     {
-      "name": "semantic-hedge-fund",
+      "name": "hedge-fit",
       "source": {
         "source": "local",
-        "path": "./plugins/semantic-hedge-fund"
+        "path": "./plugins/hedge-fit"
       },
       "policy": {
         "installation": "AVAILABLE",

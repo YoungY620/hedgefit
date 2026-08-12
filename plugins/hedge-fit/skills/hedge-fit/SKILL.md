@@ -1,9 +1,9 @@
 ---
-name: semantic-hedge-fund
-description: "Use when the user wants AI-assisted semantic hedging with prediction markets: understand an asset or portfolio, decompose wanted and unwanted exposures, find Polymarket or Kalshi markets that may pay in bad states, evaluate hedge fit and basis risk, and produce a research report with source links."
+name: hedge-fit
+description: "Analyze hedge fit for an asset, portfolio, or investment thesis: decompose wanted and unwanted exposures, find Polymarket or Kalshi markets that may pay in bad states, evaluate causal fit, settlement, timing, liquidity, cost, and basis risk, and produce a sourced research report. Use when a user asks what could hedge a thesis or portfolio, whether a prediction market is a valid hedge, or how to size a research-only hedge overlay."
 ---
 
-# Semantic Hedge Fund
+# HedgeFit
 
 Use this skill to answer one question:
 

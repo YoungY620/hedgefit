@@ -1,33 +1,33 @@
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import '@semantic-hedge-fund/brand/styles.css';
+import '@hedgefit/brand/styles.css';
 import './styles.css';
 
-const repo = 'https://github.com/YoungY620/semantic-hedge-fund';
+const repo = 'https://github.com/YoungY620/hedgefit';
 const installOptions = {
   codex: {
     label: 'Codex',
     note: 'Add the GitHub marketplace and install the plugin in one go.',
-    command: 'codex plugin marketplace add YoungY620/semantic-hedge-fund && codex plugin add semantic-hedge-fund@semantic-hedge-fund',
+    command: 'codex plugin marketplace add YoungY620/hedgefit && codex plugin add hedge-fit@hedgefit',
   },
   curl: {
     label: 'curl',
     note: 'Download the skill directly into your Codex user skills folder.',
-    command: 'mkdir -p ~/.codex/skills/semantic-hedge-fund && curl -fsSL https://github.com/YoungY620/semantic-hedge-fund/archive/refs/heads/main.tar.gz | tar -xz --strip-components=3 -C ~/.codex/skills/semantic-hedge-fund semantic-hedge-fund-main/skills/semantic-hedge-fund',
+    command: 'mkdir -p ~/.codex/skills/hedge-fit && curl -fsSL https://github.com/YoungY620/hedgefit/archive/refs/heads/main.tar.gz | tar -xz --strip-components=3 -C ~/.codex/skills/hedge-fit hedgefit-main/skills/hedge-fit',
   },
   prompt: {
     label: 'Any agent',
     note: 'Paste this into any agent that supports installable skills.',
-    command: 'Install the semantic-hedge-fund skill from https://github.com/YoungY620/semantic-hedge-fund. Detect your user skills directory, install skills/semantic-hedge-fund there, validate SKILL.md, and tell me whether a restart is required.',
+    command: 'Install the HedgeFit skill from https://github.com/YoungY620/hedgefit. Detect your user skills directory, install skills/hedge-fit there, validate SKILL.md, and tell me whether a restart is required.',
   },
 } as const;
 
 const Mark = ({light = false}: {light?: boolean}) => (
-  <span className={`mark${light ? ' mark--light' : ''}`} aria-hidden="true"><i /></span>
+  <span className={`mark${light ? ' mark--light' : ''}`} aria-hidden="true"><i /><i /></span>
 );
 
 const Brand = ({light = false}: {light?: boolean}) => (
-  <span className={`brand${light ? ' brand--light' : ''}`}><Mark light={light} /><b>semantic hedge fund</b></span>
+  <span className={`brand${light ? ' brand--light' : ''}`}><Mark light={light} /><b>HedgeFit</b></span>
 );
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -151,7 +151,7 @@ const App = () => {
   return (
     <main>
       <nav className="nav shell">
-        <a href="#top" aria-label="Semantic Hedge Fund home"><Brand /></a>
+        <a href="#top" aria-label="HedgeFit home"><Brand /></a>
         <div className="nav-links">
           <a href="#how">How it works</a>
           <a href="#film">Film</a>
@@ -182,10 +182,10 @@ const App = () => {
           </div>
           <div className="agent-window">
             <div className="window-bar"><i /><i /><i /><span>Agent / New task</span><b><i /> Skill active</b></div>
-            <aside><small>Installed skills</small><div className="skill-item"><Mark light /><b>semantic<br />hedge fund</b></div><p>Just install the skill.<br />Then ask your agent.</p></aside>
+            <aside><small>Installed skills</small><div className="skill-item"><Mark light /><b>HedgeFit</b></div><p>Just install the skill.<br />Then ask your agent.</p></aside>
             <div className="conversation">
               <div className="question">I’m long AI infrastructure. What could hedge tighter chip export controls?</div>
-              <div className="run"><Mark light /><div><strong>semantic-hedge-fund <span>running</span></strong><ul><li>Reading the thesis and time horizon</li><li>Separating wanted from unwanted exposure</li><li>Checking exact settlement rules</li></ul></div></div>
+              <div className="run"><Mark light /><div><strong>hedge-fit <span>running</span></strong><ul><li>Reading the thesis and time horizon</li><li>Separating wanted from unwanted exposure</li><li>Checking exact settlement rules</li></ul></div></div>
             </div>
           </div>
         </div>
@@ -221,7 +221,7 @@ const App = () => {
 
       <section className="film shell" id="film">
         <div className="film-head"><span>Product film · 00:28</span><h2>See the whole workflow.</h2><p>Readable, with every screen still moving forward.</p></div>
-        <div className="video-frame"><video controls playsInline preload="metadata" poster={`${import.meta.env.BASE_URL}media/poster.png`}><source src={`${import.meta.env.BASE_URL}media/semantic-hedge-fund-promo.mp4`} type="video/mp4" />Your browser does not support video.</video></div>
+        <div className="video-frame"><video controls playsInline preload="metadata" poster={`${import.meta.env.BASE_URL}media/poster.png`}><source src={`${import.meta.env.BASE_URL}media/hedgefit-promo.mp4`} type="video/mp4" />Your browser does not support video.</video></div>
       </section>
 
       <section className="install" id="install">

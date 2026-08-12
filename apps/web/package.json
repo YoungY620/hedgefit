@@ -1,5 +1,5 @@
 {
-  "name": "@semantic-hedge-fund/web",
+  "name": "@hedgefit/web",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@semantic-hedge-fund/brand": "*",
+    "@hedgefit/brand": "*",
     "@vitejs/plugin-react": "latest",
     "vite": "latest",
     "react": "19.1.1",

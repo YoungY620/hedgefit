@@ -1,5 +1,5 @@
 {
-  "name": "semantic-hedge-fund-monorepo",
+  "name": "hedgefit-monorepo",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -8,9 +8,9 @@
     "packages/*"
   ],
   "scripts": {
-    "dev:web": "npm run dev --workspace=@semantic-hedge-fund/web",
-    "build:web": "npm run build --workspace=@semantic-hedge-fund/web",
-    "studio:promo": "npm run studio --workspace=@semantic-hedge-fund/promo",
-    "render:promo": "npm run render --workspace=@semantic-hedge-fund/promo"
+    "dev:web": "npm run dev --workspace=@hedgefit/web",
+    "build:web": "npm run build --workspace=@hedgefit/web",
+    "studio:promo": "npm run studio --workspace=@hedgefit/promo",
+    "render:promo": "npm run render --workspace=@hedgefit/promo"
   }
 }

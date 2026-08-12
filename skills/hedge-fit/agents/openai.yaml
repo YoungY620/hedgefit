@@ -1,0 +1,5 @@
+interface:
+  display_name: "HedgeFit"
+  short_description: "Test hedge fit for portfolio bad states."
+  brand_color: "#B8F36B"
+  default_prompt: "Use $hedge-fit to find instruments that could pay when my investment thesis breaks."

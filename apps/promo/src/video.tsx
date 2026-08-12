@@ -10,7 +10,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
-import {brandColors} from '@semantic-hedge-fund/brand';
+import {brandColors} from '@hedgefit/brand';
 
 const C = {
   ...brandColors,
@@ -52,15 +52,11 @@ const LogoMark: React.FC<{size?: number; dark?: boolean}> = ({size = 32, dark = 
       flex: '0 0 auto',
     }}
   >
-    <div
-      style={{
-        width: size * 0.34,
-        height: size * 0.58,
-        borderLeft: `${Math.max(2, size * 0.08)}px solid ${dark ? C.lime : C.ink}`,
-        borderBottom: `${Math.max(2, size * 0.08)}px solid ${dark ? C.lime : C.ink}`,
-        transform: 'skew(-12deg)',
-      }}
-    />
+    <div style={{position: 'relative', width: size * 0.48, height: size * 0.56}}>
+      <i style={{position: 'absolute', left: 0, top: 0, width: size * 0.075, height: '100%', borderRadius: 99, background: dark ? C.lime : C.ink}} />
+      <i style={{position: 'absolute', right: 0, top: 0, width: size * 0.075, height: '100%', borderRadius: 99, background: dark ? C.lime : C.ink}} />
+      <i style={{position: 'absolute', left: 0, right: 0, top: '44%', height: size * 0.075, borderRadius: 99, background: dark ? C.lime : C.ink}} />
+    </div>
   </div>
 );
 
@@ -76,7 +72,7 @@ const Brand: React.FC<{light?: boolean; compact?: boolean}> = ({light = false, c
         fontSize: compact ? 18 : 24,
       }}
     >
-      semantic hedge fund
+      HedgeFit
     </div>
   </div>
 );
@@ -379,7 +375,7 @@ const AgentScene: React.FC<{duration: number}> = ({duration}) => {
               <LogoMark size={34} dark />
               <div style={{flex: 1}}>
                 <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
-                  <div style={{fontWeight: 780}}>semantic-hedge-fund</div>
+                  <div style={{fontWeight: 780}}>hedge-fit</div>
                   <Pill tone="lime" style={{padding: '5px 9px', fontSize: 10}}>running</Pill>
                 </div>
                 <div style={{marginTop: 16, display: 'grid', gap: 9}}>
@@ -802,7 +798,7 @@ const ReportScene: React.FC<{duration: number}> = ({duration}) => {
 const EndScene: React.FC<{duration: number}> = ({duration}) => {
   const frame = useCurrentFrame();
   const logo = enterSpring(frame, 0, 13);
-  const url = 'github.com/YoungY620/semantic-hedge-fund';
+  const url = 'github.com/YoungY620/hedgefit';
   return (
     <AbsoluteFill
       style={{
@@ -920,5 +916,5 @@ const Film: React.FC<{includeAudio: boolean}> = ({includeAudio}) => {
   );
 };
 
-export const SemanticHedgeFund: React.FC = () => <Film includeAudio />;
-export const SemanticHedgeFundSilent: React.FC = () => <Film includeAudio={false} />;
+export const HedgeFit: React.FC = () => <Film includeAudio />;
+export const HedgeFitSilent: React.FC = () => <Film includeAudio={false} />;

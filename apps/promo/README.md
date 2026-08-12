@@ -1,6 +1,6 @@
 # Product film
 
-Remotion source for the Semantic Hedge Fund product film.
+Remotion source for the HedgeFit product film.
 
 The 28-second cut gives each information state time to resolve while keeping low-intensity motion moving through every scene. It uses separate title and content zones, and never crossfades two dense screens over one another.
 

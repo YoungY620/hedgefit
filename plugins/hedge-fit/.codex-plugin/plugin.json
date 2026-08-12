@@ -1,0 +1,32 @@
+{
+  "name": "hedge-fit",
+  "version": "1.0.0",
+  "description": "Turn an investment thesis into structured prediction-market hedge research.",
+  "author": {
+    "name": "YoungY620",
+    "url": "https://github.com/YoungY620"
+  },
+  "homepage": "https://youngy620.github.io/hedgefit/",
+  "repository": "https://github.com/YoungY620/hedgefit",
+  "keywords": ["hedging", "portfolio", "prediction-markets", "research"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "HedgeFit",
+    "shortDescription": "Test whether a hedge pays in your portfolio's bad states.",
+    "longDescription": "Describe an asset, portfolio, or investment thesis. HedgeFit separates wanted and unwanted exposures, researches Polymarket and Kalshi candidates, evaluates causal fit, settlement rules, timing, liquidity, cost, and basis risk, then produces a table-first report with concrete holdings. Research only; it never executes trades.",
+    "developerName": "YoungY620",
+    "category": "Finance",
+    "capabilities": ["Research", "Portfolio analysis", "Prediction markets"],
+    "websiteURL": "https://youngy620.github.io/hedgefit/",
+    "privacyPolicyURL": "https://youngy620.github.io/hedgefit/privacy/",
+    "termsOfServiceURL": "https://youngy620.github.io/hedgefit/terms/",
+    "defaultPrompt": [
+      "Find hedges that could pay when my thesis breaks.",
+      "Map the unwanted exposures in my portfolio.",
+      "Compare these markets by hedge fit and basis risk."
+    ],
+    "brandColor": "#B8F36B",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg"
+  }
+}
